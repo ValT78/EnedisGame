@@ -1,114 +1,83 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections;
 
 public class InteractableObject : MonoBehaviour
 {
     [Header("Interaction Settings")]
-    public float interactionRange = 3f;
-    public Canvas interactionCanvas;
-    public Transform canvasPosition;
     public ParticleSystem interactionParticles;
     public GameObject interactionMenuPrefab;
+    public Transform canvasPosition;
+    public Renderer objectRenderer;
+    public bool isBlockingPlayer;
 
-    private Camera playerCamera;
-    private bool isPlayerLooking;
-    private bool isPlayerClose;
     private bool hasOpenedMenu = false;
+    private Material originalMaterial;
+    private Material highlightMaterial;
+    private Coroutine highlightCoroutine;
 
-    private GameObject activeMenu;
 
     private void Start()
     {
-        playerCamera = Camera.main;
-        if (interactionCanvas != null)
+        if (objectRenderer != null)
         {
-            interactionCanvas.gameObject.SetActive(false); // Hide the canvas initially
+            originalMaterial = new Material(objectRenderer.material);
+            highlightMaterial = new Material(originalMaterial);
+            highlightMaterial.SetFloat("_Glossiness", 1f);
+            highlightMaterial.color = Color.cyan;
+            highlightMaterial.SetColor("_EmissionColor", Color.cyan * 2f);
         }
     }
 
-    private void Update()
+    public bool Interact()
     {
-        CheckPlayerInteraction();
-
-        if (isPlayerLooking && isPlayerClose && Keyboard.current.eKey.wasPressedThisFrame)
+        interactionParticles.Play();
+        print(hasOpenedMenu);
+        // Open menu if it's the first interaction
+        if (!hasOpenedMenu)
         {
-            Interact();
-        }
-    }
-
-    private void CheckPlayerInteraction()
-    {
-        // Check distance between the player and the object
-        isPlayerClose = Vector3.Distance(playerCamera.transform.position, transform.position) <= interactionRange;
-
-        if (isPlayerClose)
-        {
-            // Check if the player is looking at the object
-            Ray ray = new(playerCamera.transform.position, playerCamera.transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, interactionRange))
-            {
-                isPlayerLooking = hit.transform == transform;
-            }
-            else
-            {
-                isPlayerLooking = false;
-            }
+            hasOpenedMenu = true;
+            Instantiate(interactionMenuPrefab);
+            return isBlockingPlayer;
         }
         else
         {
-            isPlayerLooking = false;
-        }
-
-        // Show or hide the interaction canvas based on conditions
-        if (interactionCanvas != null)
-        {
-            interactionCanvas.gameObject.SetActive(isPlayerLooking && isPlayerClose);
-
-            // Optional: Align the canvas to face the player
-            if (interactionCanvas.gameObject.activeSelf)
-            {
-                interactionCanvas.transform.position = canvasPosition != null ? canvasPosition.position : transform.position;
-                interactionCanvas.transform.LookAt(playerCamera.transform);
-                interactionCanvas.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
-            }
+            return false;
         }
     }
 
-    private void Interact()
+    public void EnableHighlight(float duration)
     {
-        // Trigger particle effect
-        if (interactionParticles != null)
+        if (highlightCoroutine != null)
         {
-            interactionParticles.Play();
+            StopCoroutine(highlightCoroutine);
         }
-
-        // Open menu if it's the first interaction
-        if (!hasOpenedMenu && interactionMenuPrefab != null)
-        {
-            hasOpenedMenu = true;
-            activeMenu = Instantiate(interactionMenuPrefab);
-
-            // Position the menu in front of the player
-            activeMenu.transform.SetParent(playerCamera.transform, false);
-            activeMenu.transform.localPosition = new Vector3(0f, 0f, 2f);
-            activeMenu.transform.localRotation = Quaternion.identity;
-
-            // Add functionality to the close button
-            Button closeButton = activeMenu.GetComponentInChildren<Button>();
-            if (closeButton != null)
-            {
-                closeButton.onClick.AddListener(CloseMenu);
-            }
-        }
+        highlightCoroutine = StartCoroutine(FadeHighlight(true, duration));
     }
 
-    private void CloseMenu()
+    public void DisableHighlight(float duration)
     {
-        if (activeMenu != null)
+        if (highlightCoroutine != null)
         {
-            Destroy(activeMenu);
-            activeMenu = null;
+            StopCoroutine(highlightCoroutine);
         }
+        highlightCoroutine = StartCoroutine(FadeHighlight(false, duration));
     }
+
+    private IEnumerator FadeHighlight(bool enable, float duration)
+    {
+        float startLerp = enable ? 0f : 1f;
+        float endLerp = enable ? 1f : 0f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float lerpFactor = Mathf.Lerp(startLerp, endLerp, elapsedTime / duration);
+            objectRenderer.material.Lerp(originalMaterial, highlightMaterial, lerpFactor);
+            yield return null;
+        }
+        objectRenderer.material = enable ? highlightMaterial : originalMaterial;
+    }
+
 }

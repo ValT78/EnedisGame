@@ -27,19 +27,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip firstExplosion;
     public AudioClip secondExplosion;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Start()
     {
         PlayMusic(2);

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public EnergyBar energyBar;
     public FirstPersonController playerController;
     public DialogueManager dialogueManager;
+    public AudioManager audioManager;
 
     [Header("Game Settings")]
     public bool isPaused = false;

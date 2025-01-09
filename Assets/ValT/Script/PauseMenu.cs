@@ -16,15 +16,10 @@ public class PauseMenu : MonoBehaviour
     public Image sfxFillBar;   // Image remplie pour les effets spéciaux
     public Image sensitivityFillBar; // Image remplie pour la sensibilité
 
-    [Header("Texts")]
-    public TextMeshProUGUI musicValueText; // Texte pour afficher la valeur musique
-    public TextMeshProUGUI sfxValueText;   // Texte pour les effets spéciaux
-    public TextMeshProUGUI sensitivityValueText; // Texte pour la sensibilité
-
     [Header("Settings")]
-    [Range(0, 1)] public float musicValue; // Valeur initiale pour la musique
-    [Range(0, 1)] public float sfxValue;   // Valeur initiale pour les effets spéciaux
-    [Range(0, 1)] public float sensitivityValue; // Valeur initiale pour la sensibilité
+    [Range(0, 1)] private float musicValue; // Valeur initiale pour la musique
+    [Range(0, 1)] private float sfxValue;   // Valeur initiale pour les effets spéciaux
+    [Range(0, 1)] private float sensitivityValue; // Valeur initiale pour la sensibilité
 
 
     void Start()
@@ -34,10 +29,6 @@ public class PauseMenu : MonoBehaviour
         settingsMenuUI.SetActive(false);
         grayBackgroundUI.SetActive(false);
 
-        // Initialiser les sliders avec les valeurs par défaut
-        UpdateMusicSlider(musicValue);
-        UpdateSFXSlider(sfxValue);
-        UpdateSensitivitySlider(sensitivityValue);
     }
 
     void Update()
@@ -96,25 +87,22 @@ public class PauseMenu : MonoBehaviour
     {
         musicValue = Mathf.Clamp01(value); // S'assurer que la valeur est entre 0 et 1
         musicFillBar.fillAmount = musicValue; // Mettre à jour le remplissage
-        musicValueText.text = Mathf.RoundToInt(musicValue * 100) + "%"; // Mettre à jour le texte
         // Appliquer la valeur au volume de la musique
-        AudioManager.Instance.musicSource.volume = musicValue; // Exemple, remplace par ton propre gestionnaire de son
+        GameManager.Instance.audioManager.musicSource.volume = musicValue; // Exemple, remplace par ton propre gestionnaire de son
     }
 
     public void UpdateSFXSlider(float value)
     {
         sfxValue = Mathf.Clamp01(value);
         sfxFillBar.fillAmount = sfxValue;
-        sfxValueText.text = Mathf.RoundToInt(sfxValue * 100) + "%";
-        AudioManager.Instance.soundEffectSource.volume = sfxValue; // Exemple, remplace par ton propre gestionnaire de son
+        GameManager.Instance.audioManager.soundEffectSource.volume = sfxValue; // Exemple, remplace par ton propre gestionnaire de son
     }
 
     public void UpdateSensitivitySlider(float value)
     {
         sensitivityValue = Mathf.Clamp01(value);
         sensitivityFillBar.fillAmount = sensitivityValue;
-        sensitivityValueText.text = Mathf.RoundToInt(sensitivityValue * 100) + "%";
         // Appliquer la valeur à la sensibilité de la souris
-        FirstPersonController.Instance.mouseSensitivity = sensitivityValue * 200;
+        GameManager.Instance.playerController.mouseSensitivity = sensitivityValue * 200;
     }
 }

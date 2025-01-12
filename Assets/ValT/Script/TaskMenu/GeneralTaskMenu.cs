@@ -6,7 +6,7 @@ public class GeneralTaskMenu : MonoBehaviour
     public void CompleteTask()
     {
         GameManager.Instance.CompleteTask(taskPoints);
-        GameManager.Instance.dialogueManager.GetDialogById("intro_1");
+        GameManager.Instance.dialogueManager.PlayDialogById("intro_1");
         Destroy(gameObject);
     }
 }

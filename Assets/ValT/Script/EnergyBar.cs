@@ -26,6 +26,7 @@ public class EnergyBar : MonoBehaviour
     public float returnSpeed; // Vitesse pour revenir à la position/taille d'origine
 
     [Header("Slow Layer Settings")]
+    public float fastLayerDuration; // Durée de l'animation du fastLayer
     public float slowLayerDelay; // Délai avant que le 2e layer descende
     public float slowLayerSpeed; // Vitesse du 2e layer
 
@@ -77,12 +78,11 @@ public class EnergyBar : MonoBehaviour
         // Étape 3 : Animation du fastLayer (avec courbe d'interpolation)
         float initialFastValue = currentFastValue;
         float elapsedFastTime = 0f;
-        float fastDuration = 0.5f; // Durée de l'animation rapide
 
-        while (elapsedFastTime < fastDuration)
+        while (elapsedFastTime < fastLayerDuration)
         {
             elapsedFastTime += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsedFastTime / fastDuration);
+            float t = Mathf.Clamp01(elapsedFastTime / fastLayerDuration);
             currentFastValue = Mathf.Lerp(initialFastValue, targetValue, fastLayerCurve.Evaluate(t));
             fastLayer.fillAmount = currentFastValue;
             yield return null;

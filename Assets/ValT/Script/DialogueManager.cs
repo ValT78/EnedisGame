@@ -35,6 +35,11 @@ public class DialogueManager : MonoBehaviour
         LoadDialoguesFromCSV("dialogues");
     }
 
+    public bool GetIsDialogueActive()
+    {
+        return isDialogueActive;
+    }
+
     void LoadDialoguesFromCSV(string fileName)
     {
         // Charge le fichier depuis Resources
@@ -71,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log($"Chargé {Dialogues.Count} dialogues depuis le fichier CSV.");
     }
 
-    public void GetDialogById(string dialogId)
+    public void PlayDialogById(string dialogId)
     {
         Dialogue dialogue = Dialogues.GetValueOrDefault(dialogId);
         if (dialogue != null)
@@ -84,22 +89,20 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void OnDialogue(InputAction.CallbackContext context)
+    public void SkipDialog()
     {
-        if (context.phase == InputActionPhase.Started)
+        if (currentDialogueSegments.Count > 0)
         {
-            if (currentDialogueSegments.Count > 0)
-            {
-                dialogueText.text = currentDialogueSegments.Dequeue();
-            }
-
-            else if (isDialogueActive && (!audioSource.isPlaying))
-            {
-               /* redDialogueIndex++;
-                print("Dialogue index: " + redDialogueIndex + " " + currentDialogueIndex);*/
-                DisplayNextSentence();
-            }
+            dialogueText.text = currentDialogueSegments.Dequeue();
         }
+
+        else if (isDialogueActive)
+        {
+           /* redDialogueIndex++;
+            print("Dialogue index: " + redDialogueIndex + " " + currentDialogueIndex);*/
+            DisplayNextSentence();
+        }
+        
 
     }
 
@@ -138,8 +141,8 @@ public class DialogueManager : MonoBehaviour
             Dialogue dialogue = dialoguesQueue.Dequeue();
             SplitDialogueText(dialogue.text);
             characterImage.sprite = dialogue.characterSprite;
-            characterTransform.localPosition = dialogue.characterPosition;
-            characterTransform.rotation = Quaternion.Euler(dialogue.characterRotation);
+           /* characterTransform.localPosition = dialogue.characterPosition;
+            characterTransform.rotation = Quaternion.Euler(dialogue.characterRotation);*/
 
             audioSource.clip = dialogue.audioClip;
             audioSource.Play();

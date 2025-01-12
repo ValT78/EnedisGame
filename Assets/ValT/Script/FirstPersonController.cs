@@ -90,10 +90,15 @@ public class FirstPersonController : MonoBehaviour
             HandleMouseLook();
             DetectInteractable();
         }
-
-        if (currentInteractable != null && interactAction.WasPressedThisFrame())
-        {
-            isDoingTask = currentInteractable.Interact();
+        if (interactAction.WasPressedThisFrame()) {
+            if(GameManager.Instance.dialogueManager.GetIsDialogueActive())
+            {
+                GameManager.Instance.dialogueManager.SkipDialog();
+            }
+            else if (currentInteractable != null)
+            {
+                isDoingTask = currentInteractable.Interact();
+            }
         }
 
         UpdateCanvasPosition();

@@ -3,10 +3,13 @@ using UnityEngine;
 public class GeneralTaskMenu : MonoBehaviour
 {
     [SerializeField] private int taskPoints;
+    [SerializeField] private string successDialogueId;
+
     public void CompleteTask()
     {
+        print("Task completed!");
         GameManager.Instance.CompleteTask(taskPoints);
-        GameManager.Instance.dialogueManager.PlayDialogById("intro_1");
+        if(successDialogueId != "") GameManager.Instance.dialogueManager.PlayDialogById(successDialogueId);
         Destroy(gameObject);
     }
 }

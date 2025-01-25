@@ -32,7 +32,6 @@ public class InteractableObject : MonoBehaviour
     public bool Interact()
     {
         interactionParticles.Play();
-        print(hasOpenedMenu);
         // Open menu if it's the first interaction
         if (!hasOpenedMenu)
         {

@@ -65,4 +65,9 @@ public class RotatingDial : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     {
         // Rien à faire pour l'instant, mais tu peux ajouter des effets si nécessaire
     }
+
+    public int GetValue()
+    {
+        return currentValue;
+    }
 }

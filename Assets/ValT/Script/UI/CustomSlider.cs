@@ -71,7 +71,6 @@ public class CustomSlider : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     // Appelé lorsque la souris clique sur le slider
     public void OnPointerDown(PointerEventData eventData)
     {
-        print("testautre");
 
         UpdateSliderValue(eventData);
 
@@ -92,7 +91,6 @@ public class CustomSlider : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     // Appelé lorsque la souris relâche le slider
     public void OnPointerUp(PointerEventData eventData)
     {
-        print("test");
         // Désactiver le glow progressif
         if (glowCoroutine != null)
         {
@@ -129,7 +127,6 @@ public class CustomSlider : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
         
         while (Mathf.Abs(targetAlpha - currentAlpha) > 0.001f)
         {
-            print(currentAlpha);
 
             currentAlpha += (targetAlpha - currentAlpha) / glowFadeSpeed;
             Color newColor = glowEffect.effectColor;

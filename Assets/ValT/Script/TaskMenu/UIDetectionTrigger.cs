@@ -48,6 +48,22 @@ public class UIElementCollisionTrigger : MonoBehaviour
                 onTrigger?.Invoke();
             }
         }
+
+        // Si la souris est relâchée et que l'objet est à l'intérieur, recentre l'objet
+        if (Input.GetMouseButtonUp(0) && isTargetInside)
+        {
+            CenterTargetInside();
+        }
+    }
+
+    // Méthode pour centrer l'élément cible à l'intérieur de cet objet
+    private void CenterTargetInside()
+    {
+        if (rectTransform != null && targetElement != null)
+        {
+            // Définit la position locale de l'objet cible comme étant au centre de cet objet
+            targetElement.anchoredPosition = rectTransform.anchoredPosition;
+        }
     }
 
     // Vérifie si rectA contient entièrement rectB

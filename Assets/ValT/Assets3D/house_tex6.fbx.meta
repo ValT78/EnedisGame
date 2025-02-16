@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: 1ddeb14af6112f848b43043f973f48e1
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Books_Books_BaseColor
+    second: {fileID: 2800000, guid: e6e0c1f3938bad24e918d3dd10916f03, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Books_Books_Roughness
+    second: {fileID: 2800000, guid: fa6c92c73ae4f91408a0040ee6689e65, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch36_1001_Diffuse
+    second: {fileID: 2800000, guid: c1443af8fdfdc6a4fa5761c06a7b453d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch36_1001_Glossiness
+    second: {fileID: 2800000, guid: 2a5f65ee8324a2144925c2834d81f872, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch36_1001_Normal
+    second: {fileID: 2800000, guid: 05a4a33467a2eab468f68a3d0069af5e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch36_1001_Specular
+    second: {fileID: 2800000, guid: 553ae272d99d0b448ba6330b70298a62, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Concrete036_1K-JPG_Color
+    second: {fileID: 2800000, guid: a71eb3b5fadb2a1479fc8856ee25dcdb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Concrete036_1K-JPG_NormalDX
+    second: {fileID: 2800000, guid: 3c07355702e11db45ab74e6eec3365e7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Concrete036_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: b186be3ce31e1a7459f466a0f9578a49, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Desk_BaseColor
+    second: {fileID: 2800000, guid: 9851a2c059fc2454c911f221e757390f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Desk_Normal
+    second: {fileID: 2800000, guid: b48837300ab69ed469378947130df242, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Desk_Roughness
+    second: {fileID: 2800000, guid: 15fe1ad615f09dd439d2e808aea89ef1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Objects_Desk_BaseColor
+    second: {fileID: 2800000, guid: 73b5beeba0297624ca227cc8e96b2c1f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Objects_Desk_Emissive
+    second: {fileID: 2800000, guid: e841346f7a2e62542af1b7e1f727a917, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Objects_Desk_Metallic
+    second: {fileID: 2800000, guid: c004116c3527bcf4eabc2c328bb736e7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Objects_Desk_Normal
+    second: {fileID: 2800000, guid: b8ed9ae8532058842a933c80050104e7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Objects_Desk_Roughness
+    second: {fileID: 2800000, guid: 2fdb5bc74770c884aa781d9fcbc2c1c6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Fabric023_1K-JPG_Color
+    second: {fileID: 2800000, guid: 6f90dd535a988484baccaadb3285dee1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Fabric023_1K-JPG_NormalGL
+    second: {fileID: 2800000, guid: ac8426bc6c1eee64e901981faf8adb7a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Fabric023_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: 4d0694c958c1af542a992c07983a8f84, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic006_1K-JPG_Color
+    second: {fileID: 2800000, guid: e7339cb305a9bbb42a962009d0b315f1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic006_1K-JPG_NormalGL
+    second: {fileID: 2800000, guid: 5a2f1eabfb7cb644f96bb08d1dd92d8c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic006_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: 0432523cbe0adb64d8feeea82a552f44, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic017B_1K-JPG_NormalDX
+    second: {fileID: 2800000, guid: f24653402ad1caf488292cd102496f9d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plastic017B_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: 177278a105f45c440a67743cb10b1814, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tiles133A_1K-JPG_Color
+    second: {fileID: 2800000, guid: cf71447848648834f950513c2bba172d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tiles133A_1K-JPG_NormalGL
+    second: {fileID: 2800000, guid: bdf6d81e5e6208941a1a12cd8c351b24, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tiles133A_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: 093f2fde364b29c429cf0c19554ca816, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wallpaper001A_1K-JPG_Color
+    second: {fileID: 2800000, guid: cf4a4b187a9e1f44d8db28a3272de172, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wallpaper001A_1K-JPG_NormalGL
+    second: {fileID: 2800000, guid: acb430aebd4901143ab51124104ede2b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wallpaper001A_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: 02fe65cb3d7a4a940b2c9f4d659d7818, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood026_1K-JPG_Color
+    second: {fileID: 2800000, guid: 90b4476e6bcdbdc4ebf9dcff1421cad6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood026_1K-JPG_NormalDX
+    second: {fileID: 2800000, guid: d2f4faf154c21064e87e967a3e06705a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood026_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: 0b7112fd62c4b574f9cccda9323e6655, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood058_1K-JPG_Color
+    second: {fileID: 2800000, guid: 742734ec1ea88114da0bf06754fb673f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood058_1K-JPG_NormalDX
+    second: {fileID: 2800000, guid: 7a0a9111788fd2d48910c83dd97df771, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood058_1K-JPG_Roughness
+    second: {fileID: 2800000, guid: 57f58dc6bef34fd43b7124bafa0cf300, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

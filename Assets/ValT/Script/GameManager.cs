@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,13 +12,23 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogueManager;
     public AudioManager audioManager;
 
-    [Header("Game Settings")]
-    public bool isPaused = false;
-    public int maxScore;
+    [Header("Game Parameters")]
+    [SerializeField] private int maxScore;
+
+    [Header("Intro Animation Settings")]
+    [SerializeField] private Vector3 startRotation; // Rotation de départ (Euler)
+    [SerializeField] private Vector3 endRotation;   // Rotation de fin (Euler)
+    [SerializeField] private Image fadeImage;   // Image noire pour le fondu
+    [SerializeField] private float introAnimationDuration;
+    [SerializeField] private string introDialogueId;
+
+    [Header("Active Game Settings")]
+    public static bool isPaused = false;
+    public static bool isIntro = true;
+    public static int lastInteractedObject = 0;
+    public static bool inAnimation = false;
 
     private int score;
-
-
 
     private void Awake()
     {
@@ -30,6 +42,32 @@ public class GameManager : MonoBehaviour
         }
 
         score = maxScore;
+    }
+
+    public void StartGame()
+    {
+        isIntro = false;
+
+        energyBar.gameObject.SetActive(true);
+
+        foreach (InteractableObject obj in FindObjectsByType<InteractableObject>(FindObjectsSortMode.None))
+        {
+            if(obj.GetResetAfterIntro())
+            {
+                obj.TurnIntoNotIntroObject();
+            }
+        }
+    }
+
+    public IEnumerator StartIntro()
+    {
+        isIntro = true;
+        inAnimation = true;
+        StartCoroutine(playerController.PlayIntroAnimation(introAnimationDuration, startRotation, endRotation, fadeImage));
+        yield return new WaitForSeconds(introAnimationDuration);
+        dialogueManager.PlayDialogById(introDialogueId);    
+        inAnimation = false;
+
     }
 
     public void CompleteTask(int taskPoints)
@@ -50,4 +88,5 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
     }
+
 }

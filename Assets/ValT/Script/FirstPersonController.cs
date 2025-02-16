@@ -9,25 +9,26 @@ public class FirstPersonController : MonoBehaviour
     static public FirstPersonController Instance;
 
     [Header("Movement Settings")]
-    public float moveSpeed;
-    public float sprintMultiplier;
-    public float jumpForce;
-    public float gravity = -9.81f;
-    public float smoothAccelerationTime;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float sprintMultiplier;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float smoothAccelerationTime;
 
     [Header("Camera Settings")]
-    public float mouseSensitivity;
-    public Transform cameraTransform;
-    public float verticalLookLimit;
+    public RectTransform cursorMouseSprite;
+    [SerializeField] private float mouseSensitivity;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float verticalLookLimit;
 
     [Header("Interaction Settings")]
     public float interactionRange;
-    public LayerMask interactableLayer;
-    public Canvas interactionCanvas;
-    public float canvasFadeDuration;
-    public float highlightFadeDuration;
-    public float hoverFloatSpeed;
-    public float hoverFloatAmplitude;
+    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private Canvas interactionCanvas;
+    [SerializeField] private float canvasFadeDuration;
+    [SerializeField] private float highlightFadeDuration;
+    [SerializeField] private float hoverFloatSpeed;
+    [SerializeField] private float hoverFloatAmplitude;
 
     // Movement variables 
     private CharacterController characterController;
@@ -75,6 +76,7 @@ public class FirstPersonController : MonoBehaviour
             }
             canvasGroup.alpha = 0;
         }
+
     }
 
     void Start()
@@ -84,7 +86,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
-        if (!isDoingTask && !GameManager.Instance.isPaused)
+        if (!isDoingTask && !GameManager.isPaused && !GameManager.inAnimation)
         {
             HandleMovement();
             HandleMouseLook();
@@ -103,6 +105,15 @@ public class FirstPersonController : MonoBehaviour
 
         UpdateCanvasPosition();
 
+        CursorManager();
+
+    }
+
+    // Cursor management : rotate infinitely, and decrease smoothly in size when over an interactable object
+    private void CursorManager()
+    {
+        cursorMouseSprite.Rotate(Vector3.forward, 100 * Time.deltaTime);
+        cursorMouseSprite.localScale = Vector3.Lerp(cursorMouseSprite.localScale, Vector3.one * (currentInteractable != null ? 0.5f : 1f), Time.deltaTime * 10);
     }
 
     void HandleMovement()
@@ -164,6 +175,9 @@ public class FirstPersonController : MonoBehaviour
         {
             InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
 
+            // Si l'objet ne doit pas être actif dans cette phase du jeu, on ne le prend pas en compte
+            if (!interactable.CanInteractWith()) return;
+
             if (interactable != currentInteractable)
             {
                 if (canvasFadeCoroutine != null)
@@ -209,11 +223,12 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    // Gère la position du canvas qui indique la touche à presser pour interagir
     private void UpdateCanvasPosition()
     {
         if (currentInteractable != null && canvasGroup.alpha > 0)
         {
-            lastCanvasPosition = currentInteractable.canvasPosition.position;
+            lastCanvasPosition = currentInteractable.pressKeyCanvasPosition.position;
 
             if (lastCanvasPosition != null)
             {
@@ -224,7 +239,7 @@ public class FirstPersonController : MonoBehaviour
             interactionCanvas.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
 
             // Add floating effect
-            interactionCanvas.transform.position += Vector3.up * Mathf.Sin(Time.time * hoverFloatSpeed) * hoverFloatAmplitude;
+            interactionCanvas.transform.position += hoverFloatAmplitude * Mathf.Sin(Time.time * hoverFloatSpeed) * Vector3.up;
         }
         else if (canvasGroup.alpha > 0)
         {
@@ -255,4 +270,34 @@ public class FirstPersonController : MonoBehaviour
     {
         isDoingTask = false;
     }
+
+    public IEnumerator PlayIntroAnimation(float duration, Vector3 startRotation, Vector3 endRotation, Image fadeImage)
+    {
+        float elapsedTime = 0f;
+        fadeImage.color = new Color(0, 0, 0, 1);
+        transform.eulerAngles = startRotation;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            float alpha = Mathf.Lerp(1f, 0f, t);
+            fadeImage.color = new Color(0, 0, 0, alpha);
+
+            transform.eulerAngles = Vector3.Lerp(startRotation, endRotation, t);
+
+            yield return null;
+        }
+
+        // Assurer que la transition se termine bien
+        fadeImage.color = new Color(0, 0, 0, 0);
+        transform.eulerAngles = endRotation;
+    }
+
+    public void SetMouseSensitivity(float value)
+    {
+        mouseSensitivity = value;
+    }
+
 }

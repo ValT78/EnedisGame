@@ -78,6 +78,11 @@ public class DialogueManager : MonoBehaviour
 
     public void PlayDialogById(string dialogId)
     {
+        if (dialogId == "")
+        {
+            Debug.LogError("Aucun dialogue défini.");
+            return;
+        }
         Dialogue dialogue = Dialogues.GetValueOrDefault(dialogId);
         if (dialogue != null)
         {

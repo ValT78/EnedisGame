@@ -2,14 +2,38 @@ using UnityEngine;
 
 public class GeneralTaskMenu : MonoBehaviour
 {
-    [SerializeField] private int taskPoints;
-    [SerializeField] private string successDialogueId;
+    private int taskPoints;
+    private string successDialogueId;
+    private int interactSequenceOrder;
+
+    private GameObject UIHolder;
+
+    private void Start()
+    {
+        // Trouver le holder de l'UI avec le tag UIHolder
+        UIHolder = GameObject.FindGameObjectWithTag("UIHolder");
+        if(UIHolder != null) UIHolder.SetActive(false);
+    }
+
+    public void ConfigureMenu(int taskPoints, string successDialogueId, int interactSequenceOrder)
+    {
+        this.taskPoints = taskPoints;
+        this.successDialogueId = successDialogueId;
+        this.interactSequenceOrder = interactSequenceOrder;
+    }
 
     public void CompleteTask()
     {
-        print("Task completed!");
+        UIHolder.SetActive(true);
         GameManager.Instance.CompleteTask(taskPoints);
-        if(successDialogueId != "") GameManager.Instance.dialogueManager.PlayDialogById(successDialogueId);
+        GameManager.Instance.dialogueManager.PlayDialogById(successDialogueId);
+        GameManager.lastInteractedObject = interactSequenceOrder;
+        Destroy(gameObject);
+    }
+
+    public void CancelTask()
+    {
+        UIHolder.SetActive(true);
         Destroy(gameObject);
     }
 }

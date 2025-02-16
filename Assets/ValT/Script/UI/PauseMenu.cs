@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour
         // Détection de l'action Pause via le nouveau Input System
         if (UnityEngine.InputSystem.Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            if (GameManager.Instance.isPaused)
+            if (GameManager.isPaused)
                 Resume();
             else
                 Pause();
@@ -103,6 +103,6 @@ public class PauseMenu : MonoBehaviour
         sensitivityValue = Mathf.Clamp01(value);
         sensitivityFillBar.fillAmount = sensitivityValue;
         // Appliquer la valeur à la sensibilité de la souris
-        GameManager.Instance.playerController.mouseSensitivity = sensitivityValue * 200;
+        GameManager.Instance.playerController.SetMouseSensitivity(sensitivityValue * 200);
     }
 }

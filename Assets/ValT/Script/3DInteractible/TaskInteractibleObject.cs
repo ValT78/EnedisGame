@@ -5,8 +5,6 @@ public class TaskInteractibleObject : InteractableObject
     [Header("Task Menu")]
     [SerializeField] private GameObject notIntroMenuPrefab;
     [SerializeField] private GameObject interactionMenuPrefab;
-    [SerializeField] private bool isBlockingPlayer;
-
 
 
     public override bool Interact()

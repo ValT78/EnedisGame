@@ -39,7 +39,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 smoothVelocity;
 
     // Camera variables
-    private float xRotation = 0f;
+    private float xRotation = 0;
 
     // Input system variables and references 
     private PlayerInput playerInput;

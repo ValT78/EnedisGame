@@ -103,6 +103,6 @@ public class PauseMenu : MonoBehaviour
         sensitivityValue = Mathf.Clamp01(value);
         sensitivityFillBar.fillAmount = sensitivityValue;
         // Appliquer la valeur à la sensibilité de la souris
-        GameManager.Instance.playerController.SetMouseSensitivity(sensitivityValue * 200);
+        GameManager.Instance.playerController.SetMouseSensitivity(sensitivityValue * 100);
     }
 }

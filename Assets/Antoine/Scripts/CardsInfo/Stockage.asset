@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c328f7a0e49cd498c9f2c2cb1e9704, type: 3}
+  m_Name: Stockage
+  m_EditorClassIdentifier: 
+  name: "Stockage d\u2019\xE9nergie"
+  description: "Stocker l\u2019\xE9lectricit\xE9 exc\xE9dentaire des \xE9oliennes
+    dans des batteries."
+  jaugeAmount: 0
+  image: {fileID: 21300000, guid: 8036d284234007542879ace5724b2796, type: 3}
+  color: {r: 0.44512144, g: 0.3999644, b: 0.7924528, a: 1}
+  borderColor: {r: 0.16468026, g: 0.09838911, b: 0.6320754, a: 1}
+  textContenantColor: {r: 0.7126202, g: 0.75641227, b: 0.9622642, a: 1}
+  repliquesSiChoisi:
+  - "Les batteries de stockage sont encore en \xE9tude\u2026 Mais actuellement, ce
+    n\u2019est pas possible \xE0 grande \xE9chelle !"
+  - "On ne peut pas stocker l\u2019\xE9lectricit\xE9, c\u2019est pour \xE7a qu\u2019il
+    est important d\u2019\xE9quilibrer la production et la consommation\_!"

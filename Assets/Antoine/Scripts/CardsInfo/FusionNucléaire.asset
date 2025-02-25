@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c328f7a0e49cd498c9f2c2cb1e9704, type: 3}
+  m_Name: "FusionNucl\xE9aire"
+  m_EditorClassIdentifier: 
+  name: "Centrale \xE0 fusion nucl\xE9aire"
+  description: "Moderniser la centrale actuelle pour la convertir en centrale \xE0
+    fusion nucl\xE9aire et augmenter la production."
+  jaugeAmount: 0
+  image: {fileID: 21300000, guid: b412638b4e6b9534aa1113f7b25f9e04, type: 3}
+  color: {r: 0.990566, g: 0.5866605, b: 0.2009167, a: 1}
+  borderColor: {r: 0.8113208, g: 0.44375888, b: 0.06505875, a: 1}
+  textContenantColor: {r: 0.9245283, g: 0.74003476, b: 0.58873266, a: 1}
+  repliquesSiChoisi:
+  - "La fusion nucl\xE9aire est une technologie prometteuse, mais elle ne sera pas
+    op\xE9rationnelle \xE0 grande \xE9chelle avant plusieurs d\xE9cennies."
+  - "La fusion pourrait r\xE9volutionner l\u2019\xE9nergie, mais pour l\u2019instant,
+    concentrons-nous sur les solutions disponibles."

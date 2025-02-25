@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c328f7a0e49cd498c9f2c2cb1e9704, type: 3}
+  m_Name: Sensibiliser
+  m_EditorClassIdentifier: 
+  name: Sensibiliser les citoyens
+  description: "Lancer une campagne pour inciter aux \xE9co-gestes."
+  jaugeAmount: 10
+  image: {fileID: 21300000, guid: 722a9670fb8b7194aafaac8abec6ee14, type: 3}
+  color: {r: 0.18355249, g: 0.8666667, b: 0.16862744, a: 1}
+  borderColor: {r: 0.03123889, g: 0.509434, b: 0.033521153, a: 1}
+  textContenantColor: {r: 0.58934104, g: 0.94509804, b: 0.5372549, a: 1}
+  repliquesSiChoisi:
+  - "Un quartier inform\xE9 est un quartier qui consomme mieux !"
+  - "Les \xE9co-gestes, comme baisser le chauffage, font chuter la consommation !"

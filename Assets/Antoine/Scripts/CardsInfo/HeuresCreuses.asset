@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c328f7a0e49cd498c9f2c2cb1e9704, type: 3}
+  m_Name: HeuresCreuses
+  m_EditorClassIdentifier: 
+  name: "D\xE9caler en heures creuses"
+  description: "Programmer les appareils comme les machines \xE0 laver et les chauffe-eaux
+    en heures creuses."
+  jaugeAmount: 30
+  image: {fileID: 21300000, guid: c2ddffc350c2d574c8fbeac89d1a171c, type: 3}
+  color: {r: 0.9245283, g: 0.7846973, b: 0.20496617, a: 1}
+  borderColor: {r: 0.8490566, g: 0.49724552, b: 0.052064814, a: 1}
+  textContenantColor: {r: 0.92932165, g: 0.9339623, b: 0.4801976, a: 1}
+  repliquesSiChoisi:
+  - "Les heures creuses co\xFBtent moins cher et soulagent le r\xE9seau. Double avantage
+    !"
+  - "Avec le compteur Linky, il est possible de suivre sa consommation en temps r\xE9el
+    ! Les habitants peuvent s\u2019en servir pour optimiser leurs usages."

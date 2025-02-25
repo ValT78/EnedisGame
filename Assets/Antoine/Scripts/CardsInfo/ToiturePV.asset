@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c328f7a0e49cd498c9f2c2cb1e9704, type: 3}
+  m_Name: ToiturePV
+  m_EditorClassIdentifier: 
+  name: Subventionner les panneaux solaires
+  description: Mettre en place une aide aux particuliers pour installer des panneaux
+    solaires sur leurs toits.
+  jaugeAmount: 20
+  image: {fileID: 21300000, guid: 1a7cf091ee4770749906035b8916f1f8, type: 3}
+  color: {r: 0.8666667, g: 0.22700652, b: 0.16862744, a: 1}
+  borderColor: {r: 0.6039216, g: 0.15823561, b: 0.027450992, a: 1}
+  textContenantColor: {r: 0.94509804, g: 0.5564246, b: 0.5372549, a: 1}
+  repliquesSiChoisi:
+  - "Super ! \xC7a en a encourag\xE9 plus d'un !"
+  - "Ces toitures r\xE9duiront la pression sur le r\xE9seau et permettront l\u2019autoconsommation,
+    all\xE9geant ainsi la facture d\u2019\xE9lectricit\xE9 !"
+  - "L\u2019autoconsommation individuelle peut couvrir la recharge des v\xE9hicules
+    \xE9lectriques ou les machines \xE0 laver, tout en r\xE9duisant le co\xFBt de
+    la facture d\u2019\xE9lectricit\xE9 !"

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c328f7a0e49cd498c9f2c2cb1e9704, type: 3}
+  m_Name: autoconsommationCol
+  m_EditorClassIdentifier: 
+  name: Mettre en place l'ACC
+  description: "Autoconsommation collective : installer des dispositifs permettant
+    aux maisons avec panneaux solaires de partager leur \xE9lectricit\xE9 avec les
+    autres maisons aux alentours."
+  jaugeAmount: 20
+  image: {fileID: 21300000, guid: 0cc6c42a51e2279499600ed09f35782e, type: 3}
+  color: {r: 0.8666667, g: 0.86570865, b: 0.16862744, a: 1}
+  borderColor: {r: 0.68142784, g: 0.7264151, b: 0.065103225, a: 1}
+  textContenantColor: {r: 0.9201233, g: 0.94509804, b: 0.5372549, a: 1}
+  repliquesSiChoisi:
+  - "Chouette ! Plusieurs personnes pourront profiter de cette \xE9lectricit\xE9
+    maintenant !"
+  - "L'autoconsommation collective est une bonne solution pour r\xE9duire la facture,
+    mais aussi pour la transition \xE9cologique !"
